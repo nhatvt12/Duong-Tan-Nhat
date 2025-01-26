@@ -34,21 +34,21 @@ const SwapSection: React.FC<SwapSectionProps> = ({
             defaultValue={defaultValue} />
         </div>
         <input
-          type="text"
+          type="number"
           lang="en"
           value={amount}
           onChange={onAmountChange}
           placeholder={placeholder}
           readOnly={readOnly}
-          className='font-mono bg-transparent outline-none placeholder-gray-400 text-right'
+          className='font-mono text-xl bg-transparent outline-none placeholder-gray-400 text-right'
         />
       </div>
 
       <div className="flex justify-between items-center">
-        <h4 className="font-mono text-textTheme">
-          Balance: <span className="text-sm text-gray-500">{selectedOption.price}</span>
-        </h4>
-        <h4 className="font-mono text-textTheme text-sm">≈$ {selectedOption?.price?.toFixed(2) || 0.0}</h4>
+        <h3 className="font-mono text-textTheme">
+          Balance: <span className="text-base text-textTheme">{selectedOption.price}</span>
+        </h3>
+        <h3 className="font-mono text-textTheme text-base ">≈$ {selectedOption?.price?.toFixed(2) || 0.0}</h3>
       </div>
     </div>
 

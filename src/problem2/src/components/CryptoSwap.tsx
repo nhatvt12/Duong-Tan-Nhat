@@ -80,7 +80,7 @@ const CryptoSwap: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-themeForm rounded-lg shadow-lg p-6 max-w-md w-full relative">
+    <div className="bg-themeForm rounded-lg shadow-lg p-7 max-w-xl w-full relative">
       <SwapSection
         selectedOption={selectedFromOption}
         onOptionChange={setSelectedFromOption}

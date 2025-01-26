@@ -27,7 +27,9 @@ const SelectCustom: React.FC<SelectProps> = ({
   const selectRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [dropdownStyle, setDropdownStyle] = useState<React.CSSProperties>({});
+  const [isDisplayImg, setIsDisplayImg] = useState(true)
 
+  const URL_TOKEN_IMAGE = "https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/"
 
   const handleClickOutside = (e: MouseEvent) => {
     if (
@@ -86,8 +88,8 @@ const SelectCustom: React.FC<SelectProps> = ({
               setIsOpen(false);
             }}
             className={`px-4 py-2 flex items-center space-x-2 text-sm cursor-pointer transition-all duration-300 hover:bg-red-400 hover:bg-opacity-90 hover:text-gray-200 ${value.value === option.value
-                ? "font-bold text-gray-200 bg-red-600"
-                : "text-gray-400"
+              ? "font-bold text-gray-200 bg-red-600"
+              : "text-gray-400"
               }`}
           >
             <span>{option.label}</span>
@@ -104,6 +106,14 @@ const SelectCustom: React.FC<SelectProps> = ({
         className="bg-themeForm backdrop-blur-md border border-gray-700 border-opacity-30 rounded-lg px-4 py-2 flex justify-between items-center cursor-pointer shadow-lg hover:bg-gray-900 hover:bg-opacity-80 transition-all duration-300 min-w-36"
       >
         <div className="flex items-center space-x-2">
+          {value.value && (
+            <img
+              src = {URL_TOKEN_IMAGE + `${value.value}.svg`}
+              alt="Token Icon"
+              className= {`w-8 h-8 ${isDisplayImg ? "visible" : "hidden"}`}
+              onError={() => setIsDisplayImg(false)}
+              onLoad={() => setIsDisplayImg(true)}
+            />)}
           <span className="text-base font-medium text-gray-200">
             {value.value
               ? options.find((opt) => opt.value === value.value)?.label
